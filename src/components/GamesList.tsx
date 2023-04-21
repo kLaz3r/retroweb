@@ -4,7 +4,7 @@ import React from "react";
 type Props = {
   gamesList: {
     [key: string]: string[];
-  };
+  }[];
 };
 
 const convertToTitle = (str: string) => {
@@ -24,16 +24,22 @@ const GamesList = ({ gamesList }: Props) => {
         GAMES
       </h1>
       <ul>
-        {Object.keys(gamesList).map((key) => {
-          console.log(key);
+        {gamesList.map((platform) => {
+          const consoleName = Object.keys(platform)[0];
+          const games = Object.values(platform)[0];
           return (
-            <li key={key}>
-              {key.toUpperCase()}:
+            <li key={consoleName}>
+              {consoleName!.toUpperCase()}:
               <ul className="pl-6 drop-shadow-2xl">
-                {gamesList[key]!.map((game: string) => {
+                {games!.map((game: string) => {
                   return (
                     <li key={game}>
-                      <a href={`/emulator/${key}/${game.replace(".7z", "")}`}>
+                      <a
+                        href={`/emulator/${consoleName!}/${game.replace(
+                          ".7z",
+                          ""
+                        )}`}
+                      >
                         {convertToTitle(game)}
                       </a>
                     </li>

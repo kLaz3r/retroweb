@@ -8,7 +8,7 @@ import Layout from "~/components/Layout";
 type Props = {
   gamesList: {
     [key: string]: string[];
-  };
+  }[];
 };
 
 const Emulator = ({ gamesList }: Props) => {
@@ -59,18 +59,16 @@ export default Emulator;
 
 export async function getStaticProps() {
   try {
-    const gba = await fs.promises.readdir("./public/games/gba");
-    const nes = await fs.promises.readdir("./public/games/nes");
-    const snes = await fs.promises.readdir("./public/games/snes");
-    const nds = await fs.promises.readdir("./public/games/nds");
+    const gamesFolder = await fs.promises.readdir("./public/games");
+    const gamesList = gamesFolder.map((folder) => {
+      const gamesArr = fs.readdirSync(`./public/games/${folder}`);
+      return {
+        [folder]: gamesArr,
+      };
+    });
     return {
       props: {
-        gamesList: {
-          gba,
-          nes,
-          snes,
-          nds,
-        },
+        gamesList,
       },
     };
   } catch (err) {

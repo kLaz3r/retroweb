@@ -10,7 +10,7 @@ import Layout from "~/components/Layout";
 type Props = {
   gamesList: {
     [key: string]: string[];
-  };
+  }[];
   game: string;
 };
 const convertToTitle = (str: string) => {
@@ -130,19 +130,17 @@ export default NES;
 
 export async function getStaticProps(context: { params: { game: string } }) {
   try {
-    const gba = await fs.promises.readdir("./public/games/gba");
-    const nes = await fs.promises.readdir("./public/games/nes");
-    const snes = await fs.promises.readdir("./public/games/snes");
-    const nds = await fs.promises.readdir("./public/games/nds");
+    const gamesFolder = await fs.promises.readdir("./public/games");
+    const gamesList = gamesFolder.map((folder) => {
+      const gamesArr = fs.readdirSync(`./public/games/${folder}`);
+      return {
+        [folder]: gamesArr,
+      };
+    });
     const gameName = context.params.game;
     return {
       props: {
-        gamesList: {
-          gba,
-          nes,
-          snes,
-          nds,
-        },
+        gamesList,
         game: gameName,
       },
     };
@@ -152,9 +150,16 @@ export async function getStaticProps(context: { params: { game: string } }) {
 }
 
 export async function getStaticPaths() {
-  const nes = await fs.promises.readdir("./public/games/nes");
-  const paths = nes.map((game) => ({
-    params: { game: game.replace(".7z", "") },
-  }));
-  return { paths, fallback: false };
+  try {
+    const nes = await fs.promises.readdir("./public/games/nes");
+    const paths = nes.map((game) => ({
+      params: { game: game.replace(".7z", "") },
+    }));
+    return { paths, fallback: false };
+  } catch (err) {
+    return {
+      paths: [],
+      fallback: false,
+    };
+  }
 }
