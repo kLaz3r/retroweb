@@ -24,31 +24,35 @@ const GamesList = ({ gamesList }: Props) => {
         GAMES
       </h1>
       <ul>
-        {gamesList.map((platform) => {
-          const consoleName = Object.keys(platform)[0];
-          const games = Object.values(platform)[0];
-          return (
-            <li key={consoleName}>
-              {consoleName!.toUpperCase()}:
-              <ul className="pl-6 drop-shadow-2xl">
-                {games!.map((game: string) => {
-                  return (
-                    <li key={game}>
-                      <a
-                        href={`/emulator/${consoleName!}/${game.replace(
-                          ".7z",
-                          ""
-                        )}`}
-                      >
-                        {convertToTitle(game)}
-                      </a>
-                    </li>
-                  );
-                })}
-              </ul>
-            </li>
-          );
-        })}
+        {!gamesList ? (
+          <li>Load some games in the public folder</li>
+        ) : (
+          gamesList.map((platform) => {
+            const consoleName = Object.keys(platform)[0];
+            const games = Object.values(platform)[0];
+            return (
+              <li key={consoleName}>
+                {consoleName!.toUpperCase()}:
+                <ul className="pl-6 drop-shadow-2xl">
+                  {games!.map((game: string) => {
+                    return (
+                      <li key={game}>
+                        <a
+                          href={`/emulator/${consoleName!}/${game.replace(
+                            ".7z",
+                            ""
+                          )}`}
+                        >
+                          {convertToTitle(game)}
+                        </a>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </li>
+            );
+          })
+        )}
       </ul>
     </div>
   );

@@ -19,10 +19,10 @@ const Home: NextPage = () => {
               Play retro games right in your browser.
             </p>
             <Link
-              className="rounded-md border-2 border-black bg-[#aaa] px-3 py-2 text-xl text-black transition-all hover:border-[#aaa] hover:bg-black hover:text-[#aaa]"
+              className="rounded-md border-2 border-black bg-[#aaa] px-3 py-2 text-4xl text-black transition-all hover:border-[#aaa] hover:bg-black hover:text-[#aaa]"
               href="/emulator"
             >
-              Check it out
+              Play
             </Link>
           </div>
         </main>
