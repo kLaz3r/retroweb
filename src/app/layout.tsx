@@ -48,27 +48,29 @@ function LogoSVG() {
 
 function Navbar() {
   return (
-    <nav className="bg-background border-lighterBackground flex h-28 flex-row items-center justify-between border-b-4 px-10">
-      <LogoSVG />
-      <div>
-        <a
-          href="#"
-          className="text-text font-display mx-4 text-3xl font-semibold"
-        >
-          Home
-        </a>
-        <a
-          href="#"
-          className="text-text font-display mx-4 text-3xl font-semibold"
-        >
-          Games
-        </a>
-        <a
-          href="#"
-          className="text-text font-display mx-4 text-3xl font-semibold"
-        >
-          About
-        </a>
+    <nav className="bg-background border-lighterBackground fixed h-28 w-full border-b-4 px-10">
+      <div className="container mx-auto flex h-full flex-row items-center justify-between">
+        <LogoSVG />
+        <div>
+          <a
+            href="#"
+            className="text-text font-display mx-4 text-3xl font-semibold"
+          >
+            Home
+          </a>
+          <a
+            href="#"
+            className="text-text font-display mx-4 text-3xl font-semibold"
+          >
+            Games
+          </a>
+          <a
+            href="#"
+            className="text-text font-display mx-4 text-3xl font-semibold"
+          >
+            About
+          </a>
+        </div>
       </div>
     </nav>
   );
