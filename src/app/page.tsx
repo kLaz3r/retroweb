@@ -8,24 +8,113 @@ export default function HomePage() {
 
 function HeroSection() {
   return (
-    <main className="bg-background h-screen w-full pt-28">
+    <main className="h-screen w-full bg-background pt-28">
       <div className="container mx-auto flex h-full flex-row items-center justify-between">
-        <div className="text-text flex w-1/2 flex-col items-start justify-center pr-12">
-          <h6 className="font-display text-secondary text-2xl font-bold">
+        <div className="flex w-1/2 flex-col items-start justify-center gap-4 pr-12 text-text">
+          <h6 className="font-display text-2xl font-bold text-secondary">
             RETROWEB
           </h6>
-          <h1 className="font-display text-6xl font-black leading-normal">
+          <h1 className="font-display text-6xl font-black leading-tight">
             Play Retro Games right in your web browser
           </h1>
-          <p className="font-body text-bodyText text-2xl">
+          <p className="relative pb-6 font-body text-2xl text-bodyText">
             Turn back the clock with your favorite retro games. Play instantly
             and bring the nostalgia wherever you are.
+            <PeaceSVG />
           </p>
-          <button>PLAY</button>
+          <div className="relative">
+            <button className="relative z-20 bg-secondary px-12 py-4 font-display text-4xl font-black text-text">
+              PLAY
+            </button>
+            <div className="full absolute left-0 top-0 z-10 h-full w-full translate-x-2 translate-y-2 bg-text"></div>
+          </div>
         </div>
-        <RetrowaveSunSVG />
+        <div className="relative">
+          <RetrowaveSunSVG />
+          <div className="absolute left-0 top-0 flex h-full w-full items-center justify-center">
+            <EyesSVG />
+          </div>
+        </div>
       </div>
     </main>
+  );
+}
+
+function PeaceSVG() {
+  return (
+    <span className="absolute right-0 top-0 translate-x-14">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="78"
+        height="83"
+        viewBox="0 0 78 83"
+        fill="none"
+      >
+        <path
+          d="M31.8505 82.5161C14.2883 82.5161 0 68.2285 0 50.6656C0 33.1033 14.2877 18.8151 31.8505 18.8151C49.4134 18.8151 63.701 33.1028 63.701 50.6656C63.701 68.2279 49.4128 82.5161 31.8505 82.5161ZM31.8505 25.7624C18.1187 25.7624 6.94729 36.9338 6.94729 50.6656C6.94729 64.3974 18.1187 75.5689 31.8505 75.5689C45.5824 75.5689 56.7538 64.3974 56.7538 50.6656C56.7538 36.9344 45.5824 25.7624 31.8505 25.7624Z"
+          fill="#2DE2E6"
+        />
+        <path
+          d="M35.3239 22.2893H28.3767V79.0425H35.3239V22.2893Z"
+          fill="#2DE2E6"
+        />
+        <path
+          d="M29.4891 48.1378L10.874 65.4022L15.5981 70.4959L34.2132 53.2315L29.4891 48.1378Z"
+          fill="#FF3864"
+        />
+        <path
+          d="M34.219 48.1444L29.4949 53.2381L48.1099 70.5024L52.834 65.4087L34.219 48.1444Z"
+          fill="#2DE2E6"
+        />
+        <path
+          d="M34.3049 80.0618C16.7426 80.0618 2.45435 65.7741 2.45435 48.2113C2.45435 30.649 16.742 16.3608 34.3049 16.3608C51.8672 16.3608 66.1553 30.6484 66.1553 48.2113C66.1553 65.7735 51.8672 80.0618 34.3049 80.0618ZM34.3049 23.308C20.5731 23.308 9.40164 34.4794 9.40164 48.2113C9.40164 61.9431 20.5731 73.1145 34.3049 73.1145C48.0361 73.1145 59.2081 61.9431 59.2081 48.2113C59.2081 34.48 48.0367 23.308 34.3049 23.308Z"
+          fill="#FF3864"
+        />
+        <path
+          d="M37.7785 19.8344H30.8313V76.5876H37.7785V19.8344Z"
+          fill="#FF3864"
+        />
+        <path
+          d="M31.9417 45.6794L13.3267 62.9437L18.0508 68.0374L36.6658 50.7731L31.9417 45.6794Z"
+          fill="#FF3864"
+        />
+        <path
+          d="M36.6745 45.6923L31.9504 50.786L50.5655 68.0504L55.2896 62.9567L36.6745 45.6923Z"
+          fill="#FF3864"
+        />
+        <path
+          d="M64.3186 78.5236C64.2423 78.5236 64.1661 78.4944 64.1077 78.4366C63.9916 78.3205 63.9916 78.1316 64.1077 78.0155C72.0814 70.0412 76.473 59.4572 76.473 48.2119C76.473 36.9665 72.0814 26.3819 64.1077 18.4082C56.1341 10.4346 45.55 6.04358 34.3047 6.04358C34.1403 6.04358 34.0068 5.91014 34.0068 5.74572C34.0068 5.5813 34.1403 5.44786 34.3047 5.44786C45.7097 5.44786 56.4432 9.90143 64.5289 17.9871C72.6151 26.0733 77.0687 36.8075 77.0687 48.2119C77.0687 59.6168 72.6151 70.3504 64.5289 78.4366C64.4711 78.4944 64.3948 78.5236 64.3186 78.5236Z"
+          fill="white"
+        />
+        <path
+          d="M42.9274 12.7388C42.8684 12.7388 42.81 12.7221 42.7581 12.6858L33.0057 5.94471C32.9193 5.88514 32.8705 5.78446 32.8776 5.68021C32.8848 5.57596 32.9456 5.48242 33.0391 5.43477L43.5921 0.0322265C43.7369 -0.0416422 43.918 0.0155569 43.993 0.162103C44.0681 0.308053 44.0098 0.487961 43.8632 0.563021L33.7533 5.73919L43.0965 12.1973C43.2323 12.2909 43.2657 12.4767 43.1722 12.6113C43.115 12.6941 43.0215 12.7388 42.9274 12.7388Z"
+          fill="white"
+        />
+      </svg>
+    </span>
+  );
+}
+
+function EyesSVG() {
+  return (
+    <span className="mb-24">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="132"
+        height="101"
+        viewBox="0 0 132 101"
+        fill="none"
+      >
+        <path
+          d="M81.5391 25.842C81.4271 27.111 81.3541 28.405 81.3541 29.733C81.3541 42.856 87.0351 53.495 94.0431 53.495C101.051 53.495 106.732 42.857 106.732 29.733C106.732 16.61 101.051 5.97099 94.0431 5.97099C93.3341 5.97099 92.6431 6.107 91.9651 6.317C95.8211 2.298 100.26 0 104.986 0C119.799 0 131.807 22.487 131.807 50.225C131.807 60.455 130.17 69.966 127.364 77.903L109.92 59.465L122.145 88.821C117.494 96.08 111.513 100.45 104.986 100.45C90.1731 100.45 78.1652 77.963 78.1652 50.225C78.1662 41.375 79.3931 33.064 81.5391 25.842Z"
+          fill="#2DE2E6"
+        />
+        <path
+          d="M3.37415 25.842C3.26215 27.111 3.18909 28.405 3.18909 29.733C3.18909 42.856 8.87017 53.495 15.8782 53.495C22.8862 53.495 28.5671 42.857 28.5671 29.733C28.5671 16.61 22.8862 5.97099 15.8782 5.97099C15.1692 5.97099 14.4782 6.107 13.8002 6.317C17.6562 2.298 22.0942 0 26.8212 0C41.6342 0 53.6421 22.487 53.6421 50.225C53.6421 60.455 52.0051 69.966 49.1991 77.903L31.7551 59.465L43.9801 88.821C39.3291 96.08 33.3482 100.45 26.8212 100.45C12.0082 100.45 0.00012207 77.963 0.00012207 50.225C0.00012207 41.375 1.22715 33.064 3.37415 25.842Z"
+          fill="#2DE2E6"
+        />
+      </svg>
+    </span>
   );
 }
 
