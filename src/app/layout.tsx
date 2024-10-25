@@ -48,25 +48,25 @@ function LogoSVG() {
 
 function Navbar() {
   return (
-    <nav className="bg-background border-lighterBackground fixed h-28 w-full border-b-4 px-10">
+    <nav className="fixed z-50 h-28 w-full border-b-4 border-lighterBackground bg-background px-10">
       <div className="container mx-auto flex h-full flex-row items-center justify-between">
         <LogoSVG />
         <div>
           <a
             href="#"
-            className="text-text font-display mx-4 text-3xl font-semibold"
+            className="mx-4 font-display text-3xl font-semibold text-text"
           >
             Home
           </a>
           <a
             href="#"
-            className="text-text font-display mx-4 text-3xl font-semibold"
+            className="mx-4 font-display text-3xl font-semibold text-text"
           >
             Games
           </a>
           <a
             href="#"
-            className="text-text font-display mx-4 text-3xl font-semibold"
+            className="mx-4 font-display text-3xl font-semibold text-text"
           >
             About
           </a>

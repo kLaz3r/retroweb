@@ -2,6 +2,7 @@ export default function HomePage() {
   return (
     <div>
       <HeroSection />
+      <FavoriteGamesSection />
     </div>
   );
 }
@@ -44,6 +45,41 @@ function HeroSection() {
               <PacmanFoodSVG />
               <PacmanFoodSVG />
             </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  );
+}
+
+function FavoriteGamesSection() {
+  return (
+    <main className="h-screen w-full bg-background pt-20">
+      <div className="container mx-auto flex h-full flex-col items-center justify-center gap-24">
+        <div>
+          <h6 className="text-center font-display text-2xl font-bold text-secondary">
+            FAN FAVORITES
+          </h6>
+          <h1 className="text-center font-display text-6xl font-black leading-tight text-text">
+            Start Playing Today
+          </h1>
+        </div>
+        <div className="flex flex-row items-center justify-between gap-8">
+          <div className="relative">
+            <div className="relative z-20 h-[450px] w-80 bg-[url('/assets/images/zelda.jpeg')] bg-cover bg-center"></div>
+            <div className="full absolute left-0 top-0 z-10 h-full w-full translate-x-2 translate-y-2 bg-secondary"></div>
+          </div>
+          <div className="relative">
+            <div className="relative z-20 h-[450px] w-80 bg-[url('/assets/images/mario.jpeg')] bg-cover bg-center"></div>
+            <div className="full absolute left-0 top-0 z-10 h-full w-full translate-x-2 translate-y-2 bg-secondary"></div>
+          </div>
+          <div className="relative">
+            <div className="relative z-20 h-[450px] w-80 bg-[url('/assets/images/metroid.jpeg')] bg-cover bg-center"></div>
+            <div className="full absolute left-0 top-0 z-10 h-full w-full translate-x-2 translate-y-2 bg-secondary"></div>
+          </div>
+          <div className="relative">
+            <div className="relative z-20 h-[450px] w-80 bg-[url('/assets/images/pokemon.jpeg')] bg-cover bg-center"></div>
+            <div className="full absolute left-0 top-0 z-10 h-full w-full translate-x-2 translate-y-2 bg-secondary"></div>
           </div>
         </div>
       </div>
