@@ -8,7 +8,7 @@ export default function HomePage() {
 
 function HeroSection() {
   return (
-    <main className="h-screen w-full bg-background pt-28">
+    <main className="h-screen w-full bg-background pt-20">
       <div className="container mx-auto flex h-full flex-row items-center justify-between">
         <div className="flex w-1/2 flex-col items-start justify-center gap-4 pr-12 text-text">
           <h6 className="font-display text-2xl font-bold text-secondary">
@@ -27,6 +27,9 @@ function HeroSection() {
               PLAY
             </button>
             <div className="full absolute left-0 top-0 z-10 h-full w-full translate-x-2 translate-y-2 bg-text"></div>
+            <div className="absolute bottom-0 right-0 translate-x-32 translate-y-32">
+              <ArrowSVG />
+            </div>
           </div>
         </div>
         <div className="relative">
@@ -34,9 +37,69 @@ function HeroSection() {
           <div className="absolute left-0 top-0 flex h-full w-full items-center justify-center">
             <EyesSVG />
           </div>
+          <div className="absolute bottom-0 left-0 flex translate-x-32 translate-y-28 flex-row items-center">
+            <PacmanSVG />
+            <div className="flex flex-row items-center justify-between gap-20">
+              <PacmanFoodSVG />
+              <PacmanFoodSVG />
+              <PacmanFoodSVG />
+            </div>
+          </div>
         </div>
       </div>
     </main>
+  );
+}
+
+function PacmanFoodSVG() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="19"
+      height="19"
+      viewBox="0 0 19 19"
+      fill="none"
+    >
+      <path d="M12.666 6.33298H6.33301V12.666H12.666V6.33298Z" fill="white" />
+      <path d="M6.33301 12.667H0V19H6.33301V12.667Z" fill="white" />
+      <path d="M19 12.667H12.667V19H19V12.667Z" fill="white" />
+      <path d="M6.33301 0H0V6.33301H6.33301V0Z" fill="white" />
+      <path d="M19 0H12.667V6.33301H19V0Z" fill="white" />
+    </svg>
+  );
+}
+
+function PacmanSVG() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="75"
+      height="85"
+      viewBox="0 0 75 85"
+      fill="none"
+    >
+      <path
+        d="M42.093 42.093L74.625 15.383C66.905 5.99101 55.199 0 42.093 0C18.846 0 0 18.846 0 42.093C0 65.34 18.846 84.186 42.093 84.186C55.199 84.186 66.905 78.195 74.625 68.803L42.093 42.093ZM39.1511 24.059C36.6091 24.059 34.5481 21.998 34.5481 19.456C34.5481 16.914 36.6091 14.853 39.1511 14.853C41.6931 14.853 43.7541 16.914 43.7541 19.456C43.7531 21.998 41.6931 24.059 39.1511 24.059Z"
+        fill="#FF3864"
+      />
+    </svg>
+  );
+}
+
+function ArrowSVG() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="101"
+      height="101"
+      viewBox="0 0 101 101"
+      fill="none"
+    >
+      <path
+        d="M80.1109 100.36L100.36 80.111L48.8839 28.636H95.3819V0H-0.00012207V95.382H28.6359V48.884L80.1109 100.36ZM98.9459 80.111L80.1109 98.946L27.6359 46.47V94.382H0.999878V1H94.3819V27.636H46.4699L98.9459 80.111Z"
+        fill="#2DE2E6"
+      />
+    </svg>
   );
 }
 
