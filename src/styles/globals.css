@@ -1,6 +1,17 @@
 @import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&display=swap");
 
 @theme {
-  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-sans: "Montserrat", sans-serif;
+  --font-body: "Montserrat", sans-serif;
+  --font-display: "Orbitron", sans-serif;
+}
+
+:root {
+  --background: #0d0221;
+  --body-text: #afdee0;
+  --lighter-background: #261447;
+  --secondary: #ff3864;
+  --tertiary: #ff6c11;
+  --text: #2de2e6;
 }
