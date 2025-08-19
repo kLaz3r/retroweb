@@ -3,7 +3,28 @@ import { UploadThingError } from "uploadthing/server";
 
 const f = createUploadthing();
 
-const auth = (req: Request) => ({ id: "fakeId" }); // Fake auth function
+const auth = async (req: Request) => {
+  const authHeader = req.headers.get("authorization");
+  if (!authHeader?.startsWith("Basic ")) {
+    throw new UploadThingError("Invalid authentication scheme");
+  }
+
+  const token = authHeader.split(" ")[1];
+  if (!token) throw new UploadThingError("Missing credentials");
+
+  const [username, password] = Buffer.from(token, "base64")
+    .toString()
+    .split(":");
+
+  if (
+    username !== process.env.ADMIN_USERNAME ||
+    password !== process.env.ADMIN_PASSWORD
+  ) {
+    throw new UploadThingError("Invalid credentials");
+  }
+
+  return { id: "admin" };
+};
 
 // FileRouter for your app, can contain multiple FileRoutes
 export const ourFileRouter = {
