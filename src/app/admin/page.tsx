@@ -1,6 +1,8 @@
 "use client";
 import { useState } from "react";
 
+import { UploadButton } from "../utils/uploadthing";
+
 export default function AdminPage() {
   const [gameTitle, setGameTitle] = useState("");
   const [gamePlatform, setGamePlatform] = useState("");
@@ -50,13 +52,7 @@ export default function AdminPage() {
             Game Image
           </label>
           <div className="mt-1">
-            {/* Placeholder for Uploadthing button */}
-            <button
-              type="button"
-              className="w-full rounded-md border-2 border-dashed border-gray-300 px-4 py-2 text-center text-sm font-medium text-gray-700 hover:border-gray-400"
-            >
-              Upload File (Placeholder)
-            </button>
+            <UploadButton endpoint={"gamesUploader"} />
           </div>
         </div>
         <button
