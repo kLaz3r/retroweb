@@ -13,7 +13,9 @@ export default function AdminPage() {
       const data = (await res.json()) as { message: string };
       setApiResponse(data.message);
     } catch (error) {
-      setApiResponse("Error connecting to API");
+      setApiResponse(
+        `Error connecting to API: ${error instanceof Error ? error.message : String(error)}`,
+      );
     } finally {
       setLoading(false);
     }
