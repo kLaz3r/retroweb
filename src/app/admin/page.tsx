@@ -6,6 +6,7 @@ import { UploadButton } from "../utils/uploadthing";
 export default function AdminPage() {
   const [gameTitle, setGameTitle] = useState("");
   const [gamePlatform, setGamePlatform] = useState("");
+  const [gameLink, setGameLink] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -52,7 +53,12 @@ export default function AdminPage() {
             Game Image
           </label>
           <div className="mt-1">
-            <UploadButton endpoint={"gamesUploader"} />
+            <UploadButton
+              endpoint={"gamesUploader"}
+              onClientUploadComplete={(res) => {
+                setGameLink(res[0]!.ufsUrl);
+              }}
+            />
           </div>
         </div>
         <button
