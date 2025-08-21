@@ -31,8 +31,8 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="border-background-secondary bg-background border-t px-4 py-8">
-      <div className="mx-auto max-w-7xl">
+    <footer className="border-background-secondary bg-background border-t py-8">
+      <div className="container mx-auto px-6">
         {/* Desktop Layout */}
         <div className="hidden items-center justify-between md:flex">
           {/* Left - Lorem Text */}
@@ -65,8 +65,8 @@ const Footer = () => {
           </div>
 
           {/* Right - Copyright */}
-          <div className="text-text-secondary flex-1 text-right">
-            <p className="text-sm">
+          <div className="text-text-secondary flex flex-1 flex-row items-end justify-end text-right">
+            <p className="max-w-72 text-sm">
               © Copyright {currentYear} Stefan Nasturas. <br /> All graphics
               and other multimedia are copyrighted to their respective owners
               and authors.

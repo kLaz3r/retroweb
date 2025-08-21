@@ -18,7 +18,7 @@ export default function Header() {
   return (
     <>
       <header className="bg-background border-background-secondary relative z-40 border-b">
-        <div className="mx-auto max-w-7xl px-8 sm:px-12 lg:px-16">
+        <div className="container mx-auto px-6">
           <div className="flex h-20 items-center justify-between">
             {/* Logo */}
             <div className="flex-shrink-0">
@@ -37,19 +37,19 @@ export default function Header() {
             <nav className="hidden space-x-8 md:flex">
               <Link
                 href="/"
-                className="font-display text-text-secondary hover:text-foreground px-3 py-2 text-2xl transition-colors duration-200"
+                className="font-display text-foreground hover:text-brand-secondary px-3 py-2 text-2xl font-medium transition-colors duration-200"
               >
                 Home
               </Link>
               <Link
                 href="#games"
-                className="font-display text-text-secondary hover:text-foreground px-3 py-2 text-2xl transition-colors duration-200"
+                className="font-display text-foreground hover:text-brand-secondary px-3 py-2 text-2xl font-medium transition-colors duration-200"
               >
                 Games
               </Link>
               <Link
                 href="#about"
-                className="font-display text-text-secondary hover:text-foreground px-3 py-2 text-2xl transition-colors duration-200"
+                className="font-display text-foreground hover:text-brand-secondary px-3 py-2 text-2xl font-medium transition-colors duration-200"
               >
                 About
               </Link>

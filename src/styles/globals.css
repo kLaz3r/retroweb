@@ -6,7 +6,6 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--text);
-  --color-brand-primary: var(--brand-primary);
   --color-text-secondary: var(--body-text);
   --color-background-secondary: var(--lighter-background);
   --color-brand-secondary: var(--secondary);
