@@ -11,14 +11,28 @@ const HeroSection = () => {
         <h1 className="font-display text-6xl leading-tight font-black">
           Play Retro Games right in your web browser
         </h1>
-        <p className="font-body text-text-secondary w-2/3 text-2xl">
+        <p className="font-body text-text-secondary relative w-2/3 text-2xl">
           Turn back the clock with your favorite retro games. Play instantly and
           bring the nostalgia wherever you are.
+          <Image
+            className="absolute top-0 right-0 translate-x-35"
+            src={"/peace.svg"}
+            width={90}
+            height={90}
+            alt="peace"
+          />
         </p>
         <Link
           href="/emulator"
           className="font-display text-foreground relative mt-3 w-48 px-6 py-3 text-center text-4xl font-bold"
         >
+          <Image
+            src={"/arrow-left.svg"}
+            height={60}
+            width={60}
+            alt="arrow"
+            className="absolute right-0 bottom-0 translate-x-20 translate-y-20"
+          />
           PLAY
           <div className="bg-foreground absolute top-0 left-0 h-full w-full translate-x-2 translate-y-2"></div>
           <div className="bg-brand-secondary absolute top-0 left-0 flex h-full w-full flex-col items-center justify-center">
@@ -33,7 +47,14 @@ const HeroSection = () => {
             src="/images/retro-sun-with-eyes.svg"
             fill
             className="object-contain"
-          ></Image>
+          />
+          <Image
+            src={"/pacman-with-food.svg"}
+            width={280}
+            height={80}
+            alt="pacman with food"
+            className="absolute bottom-0 translate-x-40 translate-y-20"
+          />
         </div>
       </div>
     </section>
