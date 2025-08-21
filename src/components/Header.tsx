@@ -57,21 +57,35 @@ export default function Header() {
 
             {/* Mobile menu button */}
             <div className="flex items-center justify-center md:hidden">
-              <button
+              <motion.button
                 onClick={toggleMobileMenu}
                 className="text-[var(--body-text)] hover:text-[var(--text)] focus:outline-none"
                 aria-label="Toggle mobile menu"
+                whileTap={{ scale: 0.95 }}
+                transition={{ duration: 0.1 }}
               >
-                <Image
-                  src={
-                    isMobileMenuOpen ? "/images/x.svg" : "/images/Hamburger.svg"
-                  }
-                  alt={isMobileMenuOpen ? "Close menu" : "Open menu"}
-                  width={32}
-                  height={32}
-                  className="h-8 w-8"
-                />
-              </button>
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={isMobileMenuOpen ? "x" : "hamburger"}
+                    initial={{ opacity: 0, rotate: -90, scale: 0.8 }}
+                    animate={{ opacity: 1, rotate: 0, scale: 1 }}
+                    exit={{ opacity: 0, rotate: 90, scale: 0.8 }}
+                    transition={{ duration: 0.2, ease: "easeInOut" }}
+                  >
+                    <Image
+                      src={
+                        isMobileMenuOpen
+                          ? "/images/x.svg"
+                          : "/images/Hamburger.svg"
+                      }
+                      alt={isMobileMenuOpen ? "Close menu" : "Open menu"}
+                      width={32}
+                      height={32}
+                      className="h-8 w-8"
+                    />
+                  </motion.div>
+                </AnimatePresence>
+              </motion.button>
             </div>
           </div>
         </div>

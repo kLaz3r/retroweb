@@ -3,8 +3,15 @@
 @import "uploadthing/tw/v4";
 @source "../../node_modules/@uploadthing/react/dist"; /** <-- depends on your project structure */
 
-@theme {
-  --font-sans: "Montserrat", sans-serif;
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--text);
+  --color-brand-primary: var(--brand-primary);
+  --color-text-secondary: var(--body-text);
+  --color-background-secondary: var(--lighter-background);
+  --color-brand-secondary: var(--secondary);
+  --color-brand-tertiary: var(--tertiary);
+
   --font-body: "Montserrat", sans-serif;
   --font-display: "Orbitron", sans-serif;
 }
