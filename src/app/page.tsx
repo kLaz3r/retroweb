@@ -17,8 +17,8 @@ const HeroSection = () => {
           <Image
             className="absolute top-0 right-0 translate-y-30 md:translate-x-35 md:translate-y-0"
             src={"/peace.svg"}
-            width={60}
-            height={60}
+            width={90}
+            height={90}
             alt="peace"
           />
         </p>
