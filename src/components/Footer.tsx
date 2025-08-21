@@ -37,9 +37,10 @@ const Footer = () => {
         <div className="hidden items-center justify-between md:flex">
           {/* Left - Lorem Text */}
           <div className="text-text-secondary flex-1">
-            <p className="text-sm">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            <h3 className="font-body pb-3 font-bold">RETROWEB</h3>
+            <p className="max-w-72 text-sm">
+              A portfolio project for a junior wannabe developer, any feedback
+              is appreciated.
             </p>
           </div>
 
@@ -49,18 +50,15 @@ const Footer = () => {
               <a
                 key={link.name}
                 href={link.href}
-                className="group hover:bg-background-secondary relative rounded-lg p-3 transition-all duration-300 hover:scale-125 active:scale-95"
+                className="group relative rounded-lg p-3 transition-all duration-300 hover:scale-110 active:scale-95"
                 aria-label={link.alt}
               >
                 <Image
                   src={link.icon}
                   alt={link.alt}
-                  width={32}
-                  height={32}
-                  className="group-hover:drop-shadow-[0_0_8px_theme(colors.foreground)] transition-all duration-300 group-active:brightness-75"
-                  style={{
-                    filter: "brightness(0) invert(1)",
-                  }}
+                  width={60}
+                  height={60}
+                  className="transition-all duration-300 group-active:brightness-75"
                 />
               </a>
             ))}
@@ -69,7 +67,9 @@ const Footer = () => {
           {/* Right - Copyright */}
           <div className="text-text-secondary flex-1 text-right">
             <p className="text-sm">
-              © {currentYear} Your Company. All rights reserved.
+              © Copyright {currentYear} Stefan Nasturas. <br /> All graphics
+              and other multimedia are copyrighted to their respective owners
+              and authors.
             </p>
           </div>
         </div>
@@ -77,23 +77,20 @@ const Footer = () => {
         {/* Mobile Layout */}
         <div className="flex flex-col items-center space-y-6 md:hidden">
           {/* Social Icons */}
-          <div className="flex w-full max-w-xs items-center justify-center space-x-6">
+          <div className="flex w-full max-w-xs items-center justify-center space-x-2">
             {socialLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="group hover:bg-background-secondary relative rounded-lg p-3 transition-all duration-300 hover:scale-125 active:scale-95"
+                className="group relative rounded-lg p-3 transition-all duration-300 hover:scale-110 active:scale-95"
                 aria-label={link.alt}
               >
                 <Image
                   src={link.icon}
                   alt={link.alt}
-                  width={36}
-                  height={36}
-                  className="group-hover:drop-shadow-[0_0_8px_theme(colors.foreground)] transition-all duration-300 group-active:brightness-75"
-                  style={{
-                    filter: "brightness(0) invert(1)",
-                  }}
+                  width={65}
+                  height={65}
+                  className="transition-all duration-300 group-active:brightness-75"
                 />
               </a>
             ))}
@@ -102,7 +99,9 @@ const Footer = () => {
           {/* Copyright */}
           <div className="text-text-secondary text-center">
             <p className="text-sm">
-              © {currentYear} Your Company. All rights reserved.
+              © Copyright {currentYear} Stefan Nasturas. <br /> All graphics
+              and other multimedia are copyrighted to their respective owners
+              and authors.
             </p>
           </div>
         </div>
