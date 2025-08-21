@@ -48,6 +48,13 @@ const HeroSection = () => {
             fill
             className="object-contain"
           />
+          <Image
+            src={"/pacman-with-food.svg"}
+            width={280}
+            height={80}
+            alt="pacman with food"
+            className="absolute right-0 bottom-0 hidden -translate-x-45 translate-y-20 md:block"
+          />
         </div>
       </div>
     </section>
