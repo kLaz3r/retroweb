@@ -17,7 +17,7 @@ export default function Header() {
 
   return (
     <>
-      <header className="relative z-40 border-b border-[var(--lighter-background)] bg-[var(--background)]">
+      <header className="bg-background border-background-secondary relative z-40 border-b">
         <div className="mx-auto max-w-7xl px-8 sm:px-12 lg:px-16">
           <div className="flex h-20 items-center justify-between">
             {/* Logo */}
@@ -37,19 +37,19 @@ export default function Header() {
             <nav className="hidden space-x-8 md:flex">
               <Link
                 href="/"
-                className="font-display px-3 py-2 text-2xl text-[var(--body-text)] transition-colors duration-200 hover:text-[var(--text)]"
+                className="font-display text-text-secondary hover:text-foreground px-3 py-2 text-2xl transition-colors duration-200"
               >
                 Home
               </Link>
               <Link
                 href="#games"
-                className="font-display px-3 py-2 text-2xl text-[var(--body-text)] transition-colors duration-200 hover:text-[var(--text)]"
+                className="font-display text-text-secondary hover:text-foreground px-3 py-2 text-2xl transition-colors duration-200"
               >
                 Games
               </Link>
               <Link
                 href="#about"
-                className="font-display px-3 py-2 text-2xl text-[var(--body-text)] transition-colors duration-200 hover:text-[var(--text)]"
+                className="font-display text-text-secondary hover:text-foreground px-3 py-2 text-2xl transition-colors duration-200"
               >
                 About
               </Link>
@@ -59,7 +59,7 @@ export default function Header() {
             <div className="flex items-center justify-center md:hidden">
               <motion.button
                 onClick={toggleMobileMenu}
-                className="text-[var(--body-text)] hover:text-[var(--text)] focus:outline-none"
+                className="text-text-secondary hover:text-foreground focus:outline-none"
                 aria-label="Toggle mobile menu"
                 whileTap={{ scale: 0.95 }}
                 transition={{ duration: 0.1 }}
@@ -113,7 +113,7 @@ export default function Header() {
 
             {/* Mobile Menu */}
             <motion.div
-              className="absolute top-20 right-0 left-0 border-b border-[var(--lighter-background)] bg-[var(--background)] shadow-lg"
+              className="bg-background border-background-secondary absolute top-20 right-0 left-0 border-b shadow-lg"
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
@@ -147,7 +147,7 @@ export default function Header() {
                 >
                   <Link
                     href="/"
-                    className="font-display block py-4 text-center text-6xl text-[var(--body-text)] transition-colors duration-200 hover:text-[var(--text)]"
+                    className="font-display text-text-secondary hover:text-foreground block py-4 text-center text-6xl transition-colors duration-200"
                     onClick={closeMobileMenu}
                   >
                     Home
@@ -162,7 +162,7 @@ export default function Header() {
                 >
                   <Link
                     href="#games"
-                    className="font-display block py-4 text-center text-6xl text-[var(--body-text)] transition-colors duration-200 hover:text-[var(--text)]"
+                    className="font-display text-text-secondary hover:text-foreground block py-4 text-center text-6xl transition-colors duration-200"
                     onClick={closeMobileMenu}
                   >
                     Games
@@ -177,7 +177,7 @@ export default function Header() {
                 >
                   <Link
                     href="#about"
-                    className="font-display block py-4 text-center text-6xl text-[var(--body-text)] transition-colors duration-200 hover:text-[var(--text)]"
+                    className="font-display text-text-secondary hover:text-foreground block py-4 text-center text-6xl transition-colors duration-200"
                     onClick={closeMobileMenu}
                   >
                     About
