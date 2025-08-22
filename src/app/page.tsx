@@ -55,8 +55,16 @@ const HeroSection = () => {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 1.0 }}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
+          whileHover={{
+            scale: 1.05,
+            opacity: 0.9,
+            transition: { duration: 0.2 },
+          }}
+          whileTap={{
+            scale: 0.95,
+            opacity: 0.8,
+            transition: { duration: 0.1 },
+          }}
         >
           <Link
             href="/emulator"
