@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/prefer-nullish-coalescing */
-import Link from "next/link";
 import { db } from "~/server/db";
 import { games } from "~/server/db/schema";
 
@@ -19,7 +18,6 @@ async function getGamesFromDatabase(): Promise<Platform[]> {
   try {
     const allGames = await db.select().from(games);
 
-    // Group games by platform
     const gamesByPlatform = allGames.reduce(
       (acc: Record<string, Game[]>, game) => {
         const platformName = game.platform ?? "Unknown";
@@ -36,7 +34,6 @@ async function getGamesFromDatabase(): Promise<Platform[]> {
       {},
     );
 
-    // Convert to the format expected by the UI
     const platforms: Platform[] = Object.entries(gamesByPlatform).map(
       ([platformName, games], index) => ({
         id: index + 1,
@@ -75,9 +72,9 @@ const GamesList = async () => {
             </h3>
             {platform.games.map((game) => {
               return (
-                <Link className="pl-4" key={game.id} href={game.link}>
+                <a className="block pl-4" key={game.id} href={game.link}>
                   {game.title} <br />
-                </Link>
+                </a>
               );
             })}
           </div>

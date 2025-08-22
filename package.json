@@ -27,6 +27,7 @@
     "@uploadthing/react": "^7.3.3",
     "drizzle-orm": "^0.41.0",
     "framer-motion": "^12.23.12",
+    "js-dos": "^8.3.20",
     "motion": "^12.23.12",
     "next": "^15.2.3",
     "postgres": "^3.4.4",

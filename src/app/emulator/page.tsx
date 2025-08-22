@@ -1,4 +1,9 @@
+import { type Metadata } from "next";
 import GamesList from "~/components/GamesList";
+
+export const metadata: Metadata = {
+  title: "Emulator | Retroweb",
+};
 
 const GameScreen = () => {
   return (

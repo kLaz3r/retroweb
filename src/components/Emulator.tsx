@@ -21,6 +21,11 @@ type EmulatorProps = {
 
 const Emulator = ({ core, gameUrl, gameName }: EmulatorProps) => {
   useEffect(() => {
+    const gameDiv = document.getElementById("game");
+    if (gameDiv) {
+      gameDiv.innerHTML = "";
+    }
+
     window.EJS_player = "#game";
     window.EJS_core = core;
     window.EJS_pathtodata = "https://cdn.emulatorjs.org/stable/data/";
