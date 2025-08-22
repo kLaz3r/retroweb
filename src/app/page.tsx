@@ -170,33 +170,180 @@ const games = [
 
 const GamesSection = () => {
   return (
-    <section className="container mx-auto flex min-h-[calc(100vh-5rem)] flex-col items-center justify-center gap-24 px-6">
-      <div>
+    <section className="container mx-auto flex min-h-[calc(100vh-5rem)] flex-col items-center justify-center gap-24 px-6 pb-12">
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+      >
         <h2 className="font-display text-brand-secondary pt-12 text-center text-2xl font-bold md:text-2xl">
           FAN FAVOURITES
         </h2>
         <h1 className="font-display relative pt-4 text-center text-5xl leading-tight font-black md:text-6xl">
           Start Playing Today
         </h1>
-      </div>
-      <div className="flex w-full flex-row gap-6">
-        {games.map((game) => {
-          return (
-            <div
-              className="relative flex flex-grow items-center justify-center"
-              key={game.id}
-            >
-              <Image
-                src={game.img}
-                alt={game.title}
-                width={200}
-                height={300}
-                className="z-10 h-full w-full object-cover"
-              />
-              <div className="bg-brand-secondary absolute top-0 left-0 h-full w-full translate-x-2 translate-y-2"></div>
-            </div>
-          );
-        })}
+      </motion.div>
+
+      {/* Desktop: 4 in a row, Mobile: 2x2 grid */}
+      <div className="w-full">
+        {/* Desktop Layout */}
+        <div className="hidden w-full flex-row gap-6 md:flex">
+          {games.map((game, index) => {
+            return (
+              <motion.div
+                key={game.id}
+                className="group relative flex flex-grow cursor-pointer items-center justify-center"
+                initial={{ opacity: 0, y: 50, scale: 0.8 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{
+                  duration: 0.6,
+                  delay: index * 0.15,
+                  type: "spring",
+                  bounce: 0.4,
+                }}
+                whileHover={{
+                  scale: 1.05,
+                  y: -10,
+                  transition: { duration: 0.3, type: "spring", bounce: 0.3 },
+                }}
+                whileTap={{
+                  scale: 0.95,
+                  y: -5,
+                  transition: { duration: 0.1 },
+                }}
+              >
+                <Link href={game.href} className="relative block h-full w-full">
+                  {/* Glow effect on hover */}
+                  <motion.div
+                    className="bg-brand-secondary/20 absolute inset-0 opacity-0 blur-xl group-hover:opacity-100"
+                    initial={false}
+                    animate={{ opacity: 0 }}
+                    whileHover={{ opacity: 1 }}
+                    transition={{ duration: 0.3 }}
+                  />
+
+                  {/* Game image */}
+                  <motion.div
+                    className="relative z-10"
+                    whileHover={{ rotateY: 5, rotateX: 5 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <Image
+                      src={game.img}
+                      alt={game.title}
+                      width={200}
+                      height={300}
+                      className="group-hover:shadow-3xl h-full w-full object-cover shadow-2xl transition-shadow duration-300"
+                    />
+                  </motion.div>
+
+                  {/* Background shadow layer */}
+                  <motion.div
+                    className="bg-brand-secondary absolute top-0 left-0 h-full w-full translate-x-2 translate-y-2"
+                    whileHover={{
+                      translateX: 4,
+                      translateY: 4,
+                      transition: { duration: 0.3 },
+                    }}
+                  />
+
+                  {/* Click ripple effect */}
+                  <motion.div
+                    className="absolute inset-0 z-30 bg-white/20"
+                    initial={{ scale: 0, opacity: 1 }}
+                    whileTap={{
+                      scale: 2,
+                      opacity: 0,
+                      transition: { duration: 0.4 },
+                    }}
+                  />
+                </Link>
+              </motion.div>
+            );
+          })}
+        </div>
+
+        {/* Mobile Layout: 2x2 grid */}
+        <div className="grid w-full grid-cols-2 gap-4 md:hidden">
+          {games.map((game, index) => {
+            return (
+              <motion.div
+                key={game.id}
+                className="group relative cursor-pointer"
+                initial={{ opacity: 0, y: 30, scale: 0.9 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{
+                  duration: 0.5,
+                  delay: index * 0.1,
+                  type: "spring",
+                  bounce: 0.3,
+                }}
+                whileHover={{
+                  scale: 1.03,
+                  y: -5,
+                  transition: { duration: 0.2, type: "spring", bounce: 0.4 },
+                }}
+                whileTap={{
+                  scale: 0.97,
+                  y: -2,
+                  transition: { duration: 0.1 },
+                }}
+              >
+                <Link
+                  href={game.href}
+                  className="relative block aspect-[2/3] w-full"
+                >
+                  {/* Glow effect on hover */}
+                  <motion.div
+                    className="bg-brand-secondary/20 absolute inset-0 opacity-0 blur-lg group-hover:opacity-100"
+                    initial={false}
+                    animate={{ opacity: 0 }}
+                    whileHover={{ opacity: 1 }}
+                    transition={{ duration: 0.3 }}
+                  />
+
+                  {/* Game image */}
+                  <motion.div
+                    className="relative z-10 h-full w-full"
+                    whileHover={{ rotateY: 3, rotateX: 3 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <Image
+                      src={game.img}
+                      alt={game.title}
+                      fill
+                      className="object-cover shadow-xl transition-shadow duration-300 group-hover:shadow-2xl"
+                    />
+                  </motion.div>
+
+                  {/* Background shadow layer */}
+                  <motion.div
+                    className="bg-brand-secondary absolute top-0 left-0 h-full w-full translate-x-1 translate-y-1"
+                    whileHover={{
+                      translateX: 2,
+                      translateY: 2,
+                      transition: { duration: 0.2 },
+                    }}
+                  />
+
+                  {/* Click ripple effect */}
+                  <motion.div
+                    className="absolute inset-0 z-30 bg-white/20"
+                    initial={{ scale: 0, opacity: 1 }}
+                    whileTap={{
+                      scale: 2,
+                      opacity: 0,
+                      transition: { duration: 0.3 },
+                    }}
+                  />
+                </Link>
+              </motion.div>
+            );
+          })}
+        </div>
       </div>
     </section>
   );
