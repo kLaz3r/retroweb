@@ -3,15 +3,67 @@ import { useState } from "react";
 
 import { UploadButton } from "../utils/uploadthing";
 
+// Type for API response
+type ApiResponse = {
+  message?: string;
+  game?: unknown;
+  error?: string;
+  details?: unknown[];
+};
+
 export default function AdminPage() {
   const [gameTitle, setGameTitle] = useState("");
   const [gamePlatform, setGamePlatform] = useState("");
   const [gameLink, setGameLink] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission logic here
-    console.log({ gameTitle, gamePlatform });
+
+    // Clear previous messages
+    setError("");
+    setSuccess("");
+
+    // Validate required fields
+    if (!gameTitle.trim() || !gamePlatform.trim() || !gameLink.trim()) {
+      setError("Please fill in all fields and upload an image");
+      return;
+    }
+
+    setIsLoading(true);
+
+    try {
+      const response = await fetch("/api/admin/games", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: gameTitle.trim(),
+          platform: gamePlatform.trim(),
+          link: gameLink.trim(),
+        }),
+      });
+
+      const data = (await response.json()) as ApiResponse;
+
+      if (response.ok) {
+        setSuccess("Game added successfully!");
+        // Reset form
+        setGameTitle("");
+        setGamePlatform("");
+        setGameLink("");
+      } else {
+        setError(data.error ?? "Failed to add game");
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      setError("An error occurred while adding the game");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -63,10 +115,23 @@ export default function AdminPage() {
         </div>
         <button
           type="submit"
-          className="rounded bg-blue-600 px-4 py-2 text-white hover:bg-blue-700"
+          disabled={isLoading}
+          className="rounded bg-blue-600 px-4 py-2 text-white hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-50"
         >
-          Add Game
+          {isLoading ? "Adding Game..." : "Add Game"}
         </button>
+
+        {error && (
+          <div className="mt-4 rounded-md bg-red-50 p-4">
+            <div className="text-sm text-red-700">{error}</div>
+          </div>
+        )}
+
+        {success && (
+          <div className="mt-4 rounded-md bg-green-50 p-4">
+            <div className="text-sm text-green-700">{success}</div>
+          </div>
+        )}
       </form>
     </div>
   );
