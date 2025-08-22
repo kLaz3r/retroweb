@@ -351,11 +351,38 @@ const GamesSection = () => {
 
 const PlatformsSection = () => {
   return (
-    <section className="container mx-auto flex min-h-[calc(100vh-5rem)] flex-row items-center justify-between gap-12 px-6 pb-12">
-      <div className="w-1/2">
+    <section className="container mx-auto flex min-h-[calc(100vh-5rem)] flex-col items-center justify-center gap-12 px-6 pb-12 md:flex-row md:justify-between">
+      {/* Mobile Layout: Image on top, text below */}
+      <div className="flex w-full flex-col items-center gap-8 md:hidden">
+        <div className="w-full max-w-xs">
+          <Image
+            src={"/gba.svg"}
+            alt="gba"
+            width={500}
+            height={700}
+            className="h-auto w-full object-contain"
+          />
+        </div>
+        <div className="relative flex w-full flex-col items-start justify-center gap-4 text-left">
+          <h2 className="font-display text-brand-secondary text-2xl font-bold">
+            RETROWEB
+          </h2>
+          <h1 className="font-display text-4xl leading-tight font-black sm:text-5xl">
+            A Retro Collection in Your Browser
+          </h1>
+          <p className="font-body text-text-secondary relative w-full max-w-md text-lg sm:text-xl">
+            Whether you grew up on GBA handhelds or MS-DOS computer games,
+            RetroWeb lets you experience them all. Emulate the GBA, SNES, NES,
+            and MS-DOS with ease, right from your browser.
+          </p>
+        </div>
+      </div>
+
+      {/* Desktop Layout: Original side-by-side */}
+      <div className="hidden w-1/2 md:block">
         <Image src={"/gba.svg"} alt="gba" width={500} height={700} />
       </div>
-      <div className="relative flex w-1/2 flex-col items-end justify-center gap-4">
+      <div className="relative hidden w-1/2 flex-col items-end justify-center gap-4 md:flex">
         <h2 className="font-display text-brand-secondary text-right text-2xl font-bold md:text-2xl">
           RETROWEB
         </h2>
