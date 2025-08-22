@@ -349,11 +349,42 @@ const GamesSection = () => {
   );
 };
 
+const PlatformsSection = () => {
+  return (
+    <section className="container mx-auto flex min-h-[calc(100vh-5rem)] flex-row items-center justify-between gap-12 px-6 pb-12">
+      <div className="w-1/2">
+        <Image src={"/gba.svg"} alt="gba" width={500} height={700} />
+      </div>
+      <div className="relative flex w-1/2 flex-col items-end justify-center gap-4">
+        <h2 className="font-display text-brand-secondary text-right text-2xl font-bold md:text-2xl">
+          RETROWEB
+        </h2>
+        <h1 className="font-display text-right text-5xl leading-tight font-black md:text-6xl">
+          A Retro Collection in Your Browser
+        </h1>
+        <p className="font-body text-text-secondary relative w-full text-right text-xl md:text-2xl">
+          Whether you grew up on GBA handhelds or MS-DOS computer games,
+          RetroWeb lets you experience them all. Emulate the GBA, SNES, NES, and
+          MS-DOS with ease, right from your browser.
+        </p>
+        <span className="absolute right-0 bottom-0 translate-y-40">
+          <Image
+            src={"/pacman-with-food-2.svg"}
+            width={300}
+            height={100}
+            alt="pacman-with-food"
+          />
+        </span>
+      </div>
+    </section>
+  );
+};
 export default function HomePage() {
   return (
     <main className="bg-background text-foreground min-h-screen">
       <HeroSection />
       <GamesSection />
+      <PlatformsSection />
     </main>
   );
 }
