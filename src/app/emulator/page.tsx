@@ -1,116 +1,72 @@
 import Link from "next/link";
+import { db } from "~/server/db";
+import { games } from "~/server/db/schema";
 
-const MockGames = [
-  {
-    id: 1,
-    platformName: "SNES",
-    games: [
-      {
-        id: 1,
-        title: "Lorem Ipsum",
-        link: "/emulator/lorem",
-      },
-      {
-        id: 2,
-        title: "Lorem Ipsum",
-        link: "/emulator/lorem",
-      },
-      {
-        id: 3,
-        title: "Lorem Ipsum",
-        link: "/emulator/lorem",
-      },
-      {
-        id: 4,
-        title: "Lorem Ipsum",
-        link: "/emulator/lorem",
-      },
-    ],
-  },
-  {
-    id: 2,
-    platformName: "NES",
-    games: [
-      {
-        id: 1,
-        title: "Lorem Ipsum",
-        link: "/emulator/lorem",
-      },
-      {
-        id: 2,
-        title: "Lorem Ipsum",
-        link: "/emulator/lorem",
-      },
-      {
-        id: 3,
-        title: "Lorem Ipsum",
-        link: "/emulator/lorem",
-      },
-      {
-        id: 4,
-        title: "Lorem Ipsum",
-        link: "/emulator/lorem",
-      },
-    ],
-  },
-  {
-    id: 3,
-    platformName: "DOS",
-    games: [
-      {
-        id: 1,
-        title: "Lorem Ipsum",
-        link: "/emulator/lorem",
-      },
-      {
-        id: 2,
-        title: "Lorem Ipsum",
-        link: "/emulator/lorem",
-      },
-      {
-        id: 3,
-        title: "Lorem Ipsum",
-        link: "/emulator/lorem",
-      },
-      {
-        id: 4,
-        title: "Lorem Ipsum",
-        link: "/emulator/lorem",
-      },
-    ],
-  },
-  {
-    id: 4,
-    platformName: "GBA",
-    games: [
-      {
-        id: 1,
-        title: "Lorem Ipsum",
-        link: "/emulator/lorem",
-      },
-      {
-        id: 2,
-        title: "Lorem Ipsum",
-        link: "/emulator/lorem",
-      },
-      {
-        id: 3,
-        title: "Lorem Ipsum",
-        link: "/emulator/lorem",
-      },
-      {
-        id: 4,
-        title: "Lorem Ipsum",
-        link: "/emulator/lorem",
-      },
-    ],
-  },
-];
+interface Game {
+  id: number;
+  title: string;
+  link: string;
+}
 
-const GamesList = () => {
+interface Platform {
+  id: number;
+  platformName: string;
+  games: Game[];
+}
+
+async function getGamesFromDatabase(): Promise<Platform[]> {
+  try {
+    const allGames = await db.select().from(games);
+
+    // Group games by platform
+    const gamesByPlatform = allGames.reduce(
+      (acc: Record<string, Game[]>, game) => {
+        const platformName = game.platform ?? "Unknown";
+        if (!acc[platformName]) {
+          acc[platformName] = [];
+        }
+        acc[platformName].push({
+          id: game.id,
+          title: game.name ?? "Unknown Game",
+          link: game.link ?? "/emulator",
+        });
+        return acc;
+      },
+      {},
+    );
+
+    // Convert to the format expected by the UI
+    const platforms: Platform[] = Object.entries(gamesByPlatform).map(
+      ([platformName, games], index) => ({
+        id: index + 1,
+        platformName,
+        games,
+      }),
+    );
+
+    return platforms;
+  } catch (error) {
+    console.error("Error fetching games from database:", error);
+    return [];
+  }
+}
+
+const GamesList = async () => {
+  const platforms = await getGamesFromDatabase();
+
+  if (platforms.length === 0) {
+    return (
+      <div className="border-background-secondary min-h-screen w-1/4 border-r-2 px-6">
+        <div className="flex h-full items-center justify-center">
+          <p className="text-gray-500">No games found in database</p>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="border-background-secondary min-h-screen w-1/4 border-r-2 px-6">
-      {MockGames.map((platform) => {
+      {platforms.map((platform) => {
         return (
           <div key={platform.id}>
             <h3 className="font-display text-brand-secondary pt-6 text-2xl font-bold md:text-2xl">
