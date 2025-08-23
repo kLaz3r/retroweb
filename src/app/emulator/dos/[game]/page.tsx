@@ -1,7 +1,6 @@
 import { eq } from "drizzle-orm";
 import { type Metadata } from "next";
 import { notFound } from "next/navigation";
-import Script from "next/script";
 import Dosplayer from "~/components/DosPlayer";
 
 import GamesList from "~/components/GamesList";
@@ -79,8 +78,8 @@ const GameScreen = ({ game }: { game: typeof games.$inferSelect }) => {
   const core = getEmulatorCore(game.platform);
   console.log(core);
   return (
-    <div className="min-h-screen w-3/4 items-center justify-center overflow-clip text-9xl">
-      <div className="gameContainer aspect-4/3 h-auto w-screen xl:h-[800px] xl:w-[800px]">
+    <div className="flex h-full min-h-[95vh] items-center justify-start p-2">
+      <div className="gameContainer aspect-4/3 h-auto w-full overflow-hidden bg-black">
         <Dosplayer bundleUrl={game.link} />
       </div>
     </div>
@@ -118,10 +117,13 @@ const EmulatorPage = async ({ params }: GamePageProps) => {
     }
 
     return (
-      <main className="bg-background text-foreground flex min-h-screen flex-row items-start justify-center">
-        <GamesList />
-        <GameScreen game={gameRecord} />
-        <Script src="/js-dos/js-dos.js" strategy="beforeInteractive" />
+      <main className="bg-background text-foreground flex min-h-screen flex-row items-start">
+        <div className="flex-shrink-0">
+          <GamesList />
+        </div>
+        <div className="flex min-h-screen flex-1 items-center justify-center">
+          <GameScreen game={gameRecord} />
+        </div>
       </main>
     );
   } catch (error) {

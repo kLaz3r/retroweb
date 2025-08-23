@@ -4,6 +4,7 @@ import "~/styles/globals.css";
 
 import { type Metadata } from "next";
 import { Geist, Montserrat, Orbitron } from "next/font/google";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "Create T3 App",
@@ -34,11 +35,15 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${geist.variable} ${montserrat.variable} ${orbitron.variable}`}>
+    <html
+      lang="en"
+      className={`${geist.variable} ${montserrat.variable} ${orbitron.variable}`}
+    >
       <body className="flex min-h-screen flex-col">
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
+        <Script src="/js-dos/js-dos.js" strategy="beforeInteractive" />
       </body>
     </html>
   );

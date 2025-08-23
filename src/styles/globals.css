@@ -30,3 +30,68 @@ body {
   --tertiary: #ff6c11;
   --text: #2de2e6;
 }
+
+/* js-dos emulator specific styles */
+.gameContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: calc(100vh - 180px);
+  max-height: calc(100vh - 80px);
+}
+
+.gameContainer .emulator-root {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.gameContainer .emulator-canvas,
+.gameContainer .emulator-video {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain;
+  display: block;
+}
+
+.gameContainer .emulator-loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 16px;
+  text-align: center;
+}
+
+/* Ensure the emulator container doesn't overflow */
+.gameContainer > div {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Responsive adjustments for the emulator */
+@media (max-width: 768px) {
+  .gameContainer {
+    min-height: 300px;
+    max-height: 400px;
+  }
+}
+
+@media (max-width: 480px) {
+  .gameContainer {
+    min-height: 250px;
+    max-height: 350px;
+  }
+}
+
+/* Override js-dos default styles that might cause issues */
+.emulator-root {
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.emulator-fullscreen-workaround {
+  display: none !important;
+}

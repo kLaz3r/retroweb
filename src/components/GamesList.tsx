@@ -54,7 +54,7 @@ const GamesList = async () => {
 
   if (platforms.length === 0) {
     return (
-      <div className="border-background-secondary min-h-screen w-1/4 border-r-2 px-6">
+      <div className="border-background-secondary min-h-screen w-80 border-r-2 px-6">
         <div className="flex h-full items-center justify-center">
           <p className="text-gray-500">No games found in database</p>
         </div>
@@ -63,7 +63,7 @@ const GamesList = async () => {
   }
 
   return (
-    <div className="border-background-secondary min-h-screen w-1/4 border-r-2 px-6">
+    <div className="border-background-secondary min-h-screen w-80 border-r-2 px-6">
       {platforms.map((platform) => {
         return (
           <div key={platform.id}>
