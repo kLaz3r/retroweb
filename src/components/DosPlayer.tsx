@@ -1,3 +1,8 @@
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-unsafe-call */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+/* eslint-disable @typescript-eslint/no-redundant-type-constituents */
+/* eslint-disable @typescript-eslint/prefer-optional-chain */
 "use client";
 import React, { useEffect, useRef, useState } from "react";
 
@@ -8,8 +13,17 @@ declare const Dos: DosPlayerFactoryType;
 interface PlayerProps {
   bundleUrl: string;
 }
+declare global {
+  interface Window {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    emulators: any;
+  }
+}
 
 export default function DosPlayer(props: PlayerProps) {
+  useEffect(() => {
+    window.emulators.pathPrefix = "/js-dos/";
+  }, []);
   const rootRef = useRef<HTMLDivElement>(null);
 
   const [dos, setDos] = useState<Instance | null>(null);
@@ -35,5 +49,5 @@ export default function DosPlayer(props: PlayerProps) {
     }
   }, [dos, props.bundleUrl]);
 
-  return <div ref={rootRef} style={{ width: "100%", height: "100%" }}></div>;
+  return <div ref={rootRef} className="h-full w-full"></div>;
 }
