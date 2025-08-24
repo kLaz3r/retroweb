@@ -7,6 +7,29 @@ import GamesList from "~/components/GamesList";
 import { db } from "~/server/db";
 import { games } from "~/server/db/schema";
 
+// Revalidate every 24 hours (86400 seconds)
+export const revalidate = 86400;
+
+export async function generateStaticParams() {
+  try {
+    const { db } = await import("~/server/db");
+    const { games } = await import("~/server/db/schema");
+    const { eq } = await import("drizzle-orm");
+
+    const nesGames = await db
+      .select({ id: games.id })
+      .from(games)
+      .where(eq(games.platform, "nes"));
+
+    return nesGames.map((game) => ({
+      game: game.id.toString(),
+    }));
+  } catch (error) {
+    console.error("Error generating static params for NES games:", error);
+    return [];
+  }
+}
+
 export async function generateMetadata({
   params,
 }: GamePageProps): Promise<Metadata> {

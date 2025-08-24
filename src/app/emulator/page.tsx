@@ -1,6 +1,9 @@
 import { type Metadata } from "next";
 import GamesList from "~/components/GamesList";
 
+// Revalidate every 24 hours (86400 seconds)
+export const revalidate = 86400;
+
 export const metadata: Metadata = {
   title: "Retro Game Emulator - Play Classic Games Online | RetroWeb",
   description:
