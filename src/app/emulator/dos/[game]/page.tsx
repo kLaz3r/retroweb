@@ -98,19 +98,19 @@ const GameScreen = ({ game }: { game: typeof games.$inferSelect }) => {
             </p>
             <div className="flex flex-wrap justify-center gap-2">
               <Link
-                href="/emulator/gba"
+                href="/emulator"
                 className="bg-brand-secondary rounded px-4 py-2 text-white transition hover:opacity-80"
               >
                 GBA
               </Link>
               <Link
-                href="/emulator/nes"
+                href="/emulator"
                 className="bg-brand-secondary rounded px-4 py-2 text-white transition hover:opacity-80"
               >
                 NES
               </Link>
               <Link
-                href="/emulator/snes"
+                href="/emulator"
                 className="bg-brand-secondary rounded px-4 py-2 text-white transition hover:opacity-80"
               >
                 SNES
@@ -122,8 +122,8 @@ const GameScreen = ({ game }: { game: typeof games.$inferSelect }) => {
 
       {/* Desktop emulator */}
       <div className="hidden w-full items-center justify-center md:block">
-        <div className="bg-background-secondary font-display flex h-[400px] w-full max-w-[1000px] items-center justify-center p-4 sm:h-[600px] md:h-[800px]">
-          <div className="gameContainer aspect-4/3 h-full w-full max-w-[640px] overflow-hidden">
+        <div className="bg-background-secondary font-display flex h-[400px] w-full items-center justify-center p-4 sm:h-[600px] md:h-[800px]">
+          <div className="gameContainer h-full w-full overflow-hidden">
             <Dosplayer bundleUrl={game.link} />
           </div>
         </div>
