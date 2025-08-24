@@ -28,7 +28,7 @@ const Emulator = ({ core, gameUrl, gameName }: EmulatorProps) => {
 
     window.EJS_player = "#game";
     window.EJS_core = core;
-    window.EJS_pathtodata = "https://cdn.emulatorjs.org/stable/data/";
+    window.EJS_pathtodata = "/emulatorjs/data/";
     window.EJS_gameUrl = gameUrl;
     window.EJS_gameName = gameName;
     window.EJS_startOnLoaded = true;
@@ -42,10 +42,7 @@ const Emulator = ({ core, gameUrl, gameName }: EmulatorProps) => {
 
   return (
     <>
-      <Script
-        src="https://cdn.emulatorjs.org/stable/data/loader.js"
-        strategy="afterInteractive"
-      />
+      <Script src="/emulatorjs/data/loader.js" strategy="afterInteractive" />
       <div id="game"></div>
     </>
   );
