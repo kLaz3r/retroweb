@@ -136,5 +136,5 @@ export default function DosPlayer(props: PlayerProps) {
     );
   }
 
-  return <div ref={rootRef} className="h-full w-full bg-black"></div>;
+  return <div ref={rootRef} className="h-full w-full"></div>;
 }

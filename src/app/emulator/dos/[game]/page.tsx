@@ -79,7 +79,7 @@ const GameScreen = ({ game }: { game: typeof games.$inferSelect }) => {
   console.log(core);
   return (
     <div className="flex h-full min-h-[95vh] items-center justify-start p-2">
-      <div className="gameContainer aspect-4/3 h-auto w-full overflow-hidden bg-black">
+      <div className="gameContainer aspect-4/3 h-[400px] w-[640px] overflow-hidden">
         <Dosplayer bundleUrl={game.link} />
       </div>
     </div>
