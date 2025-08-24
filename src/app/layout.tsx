@@ -130,6 +130,12 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
+        {/* Umami Analytics */}
+        <Script
+          src="https://umami.stefann.duckdns.org/script.js"
+          data-website-id="e3280967-bb64-4b43-9b95-b1205c3cdf19"
+          strategy="afterInteractive"
+        />
         <Script src="/js-dos/js-dos.js" strategy="beforeInteractive" />
       </body>
     </html>
