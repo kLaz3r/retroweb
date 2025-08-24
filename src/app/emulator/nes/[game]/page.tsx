@@ -78,8 +78,8 @@ const GameScreen = ({ game }: { game: typeof games.$inferSelect }) => {
   const core = getEmulatorCore(game.platform);
 
   return (
-    <div className="flex min-h-screen w-3/4 items-center justify-center text-9xl">
-      <div className="bg-background-secondary font-display flex h-[800px] w-[1000px] items-center justify-center font-black">
+    <div className="flex min-h-screen w-full items-center justify-center text-9xl">
+      <div className="bg-background-secondary font-display flex h-[400px] w-full max-w-[1000px] items-center justify-center p-4 font-black sm:h-[600px] md:h-[800px]">
         <Emulator core={core} gameUrl={game.link} gameName={game.name} />
       </div>
     </div>
@@ -117,9 +117,13 @@ const EmulatorPage = async ({ params }: GamePageProps) => {
     }
 
     return (
-      <main className="bg-background text-foreground flex min-h-screen flex-row items-start justify-center">
-        <GamesList />
-        <GameScreen game={gameRecord} />
+      <main className="bg-background text-foreground flex min-h-screen flex-col items-start justify-center md:flex-row">
+        <div className="flex w-full justify-center md:order-2 md:w-3/4">
+          <GameScreen game={gameRecord} />
+        </div>
+        <div className="md:order-1">
+          <GamesList />
+        </div>
       </main>
     );
   } catch (error) {
