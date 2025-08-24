@@ -32,6 +32,12 @@ const Emulator = ({ core, gameUrl, gameName }: EmulatorProps) => {
     window.EJS_gameUrl = gameUrl;
     window.EJS_gameName = gameName;
     window.EJS_startOnLoaded = true;
+    console.log("window.EJS_player:", window.EJS_player);
+    console.log("window.EJS_core:", window.EJS_core);
+    console.log("window.EJS_pathtodata:", window.EJS_pathtodata);
+    console.log("window.EJS_gameUrl:", window.EJS_gameUrl);
+    console.log("window.EJS_gameName:", window.EJS_gameName);
+    console.log("window.EJS_startOnLoaded:", window.EJS_startOnLoaded);
   }, [core, gameUrl, gameName]);
 
   return (
