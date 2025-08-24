@@ -41,7 +41,39 @@ export async function generateMetadata({
     }
 
     return {
-      title: `${gameRecord.name} | Retroweb`,
+      title: `${gameRecord.name} - Play Online NES Game | RetroWeb`,
+      description: `Play ${gameRecord.name} online in your browser! Experience this classic NES game with RetroWeb's emulator. No downloads required - start playing instantly.`,
+      keywords: [
+        `${gameRecord.name} online`,
+        `${gameRecord.name} browser`,
+        "NES games online",
+        "play NES games",
+        "NES emulator",
+        "retro games",
+        "classic games online",
+      ],
+      alternates: {
+        canonical: `/emulator/nes/${gameId}`,
+      },
+      openGraph: {
+        title: `${gameRecord.name} - Play Online | RetroWeb`,
+        description: `Play ${gameRecord.name} online in your browser! Experience this classic NES game with RetroWeb's emulator.`,
+        type: "website",
+        images: [
+          {
+            url: "/images/pixel-glasses.svg",
+            width: 1200,
+            height: 630,
+            alt: `${gameRecord.name} - NES Game`,
+          },
+        ],
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: `${gameRecord.name} - Play Online NES Game | RetroWeb`,
+        description: `Play ${gameRecord.name} online in your browser! Experience this classic NES game with RetroWeb's emulator.`,
+        images: ["/images/pixel-glasses.svg"],
+      },
     };
   } catch (error) {
     console.error(

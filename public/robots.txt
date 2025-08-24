@@ -1,0 +1,19 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+
+# Allow crawling of main content
+Allow: /emulator/
+Allow: /emulator/gba/
+Allow: /emulator/nes/
+Allow: /emulator/snes/
+Allow: /emulator/dos/
+
+# Block access to sensitive files
+Disallow: *.json
+Disallow: *.xml
+Disallow: /_next/
+
+# Sitemap
+Sitemap: https://retroweb.dev/sitemap.xml

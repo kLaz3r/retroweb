@@ -42,7 +42,39 @@ export async function generateMetadata({
     }
 
     return {
-      title: `${gameRecord.name} | Retroweb`,
+      title: `${gameRecord.name} - Play Online DOS Game | RetroWeb`,
+      description: `Play ${gameRecord.name} online in your browser! Experience this classic DOS game with RetroWeb's emulator. No downloads required - start playing instantly.`,
+      keywords: [
+        `${gameRecord.name} online`,
+        `${gameRecord.name} browser`,
+        "DOS games online",
+        "play DOS games",
+        "DOS emulator",
+        "retro games",
+        "classic games online",
+      ],
+      alternates: {
+        canonical: `/emulator/dos/${gameId}`,
+      },
+      openGraph: {
+        title: `${gameRecord.name} - Play Online | RetroWeb`,
+        description: `Play ${gameRecord.name} online in your browser! Experience this classic DOS game with RetroWeb's emulator.`,
+        type: "website",
+        images: [
+          {
+            url: "/images/pacman.svg",
+            width: 1200,
+            height: 630,
+            alt: `${gameRecord.name} - DOS Game`,
+          },
+        ],
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: `${gameRecord.name} - Play Online DOS Game | RetroWeb`,
+        description: `Play ${gameRecord.name} online in your browser! Experience this classic DOS game with RetroWeb's emulator.`,
+        images: ["/images/pacman.svg"],
+      },
     };
   } catch (error) {
     console.error(

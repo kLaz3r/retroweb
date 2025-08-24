@@ -2,7 +2,43 @@ import { type Metadata } from "next";
 import GamesList from "~/components/GamesList";
 
 export const metadata: Metadata = {
-  title: "Emulator | Retroweb",
+  title: "Retro Game Emulator - Play Classic Games Online | RetroWeb",
+  description:
+    "Choose your favorite retro gaming platform and start playing! RetroWeb supports GBA, SNES, NES, and DOS games. Play thousands of classic games directly in your browser.",
+  keywords: [
+    "retro game emulator",
+    "play classic games online",
+    "GBA emulator online",
+    "SNES emulator online",
+    "NES emulator online",
+    "DOS games browser",
+    "free online gaming",
+    "retro gaming platform",
+  ],
+  alternates: {
+    canonical: "/emulator",
+  },
+  openGraph: {
+    title: "Retro Game Emulator - Play Classic Games Online | RetroWeb",
+    description:
+      "Choose your favorite retro gaming platform and start playing! RetroWeb supports GBA, SNES, NES, and DOS games.",
+    type: "website",
+    images: [
+      {
+        url: "/images/controller.svg",
+        width: 1200,
+        height: 630,
+        alt: "RetroWeb - Game Emulator Selection",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Retro Game Emulator - Play Classic Games Online | RetroWeb",
+    description:
+      "Choose your favorite retro gaming platform and start playing! RetroWeb supports GBA, SNES, NES, and DOS games.",
+    images: ["/images/controller.svg"],
+  },
 };
 
 const GameScreen = () => {

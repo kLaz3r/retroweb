@@ -41,7 +41,39 @@ export async function generateMetadata({
     }
 
     return {
-      title: `${gameRecord.name} | Retroweb`,
+      title: `${gameRecord.name} - Play Online GBA Game | RetroWeb`,
+      description: `Play ${gameRecord.name} online in your browser! Experience this classic GBA game with RetroWeb's emulator. No downloads required - start playing instantly.`,
+      keywords: [
+        `${gameRecord.name} online`,
+        `${gameRecord.name} browser`,
+        "GBA games online",
+        "play GBA games",
+        "GBA emulator",
+        "retro games",
+        "classic games online",
+      ],
+      alternates: {
+        canonical: `/emulator/gba/${gameId}`,
+      },
+      openGraph: {
+        title: `${gameRecord.name} - Play Online | RetroWeb`,
+        description: `Play ${gameRecord.name} online in your browser! Experience this classic GBA game with RetroWeb's emulator.`,
+        type: "website",
+        images: [
+          {
+            url: "/images/gba.svg",
+            width: 1200,
+            height: 630,
+            alt: `${gameRecord.name} - GBA Game`,
+          },
+        ],
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: `${gameRecord.name} - Play Online GBA Game | RetroWeb`,
+        description: `Play ${gameRecord.name} online in your browser! Experience this classic GBA game with RetroWeb's emulator.`,
+        images: ["/images/gba.svg"],
+      },
     };
   } catch (error) {
     console.error(
@@ -79,7 +111,7 @@ const GameScreen = ({ game }: { game: typeof games.$inferSelect }) => {
 
   return (
     <div className="flex min-h-screen w-full items-center justify-center text-9xl">
-      <div className="bg-background-secondary font-display flex h-[400px] sm:h-[600px] md:h-[800px] w-full max-w-[1000px] items-center justify-center font-black p-4">
+      <div className="bg-background-secondary font-display flex h-[400px] w-full max-w-[1000px] items-center justify-center p-4 font-black sm:h-[600px] md:h-[800px]">
         <Emulator core={core} gameUrl={game.link} gameName={game.name} />
       </div>
     </div>
