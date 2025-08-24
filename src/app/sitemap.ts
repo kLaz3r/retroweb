@@ -3,7 +3,7 @@ import { db } from "~/server/db";
 import { games } from "~/server/db/schema";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = "https://retroweb.dev";
+  const baseUrl = "https://retroweb.stefannasturas.com";
 
   // Get all games from the database
   const gamesData = await db.select().from(games);

@@ -16,4 +16,4 @@ Disallow: *.xml
 Disallow: /_next/
 
 # Sitemap
-Sitemap: https://retroweb.dev/sitemap.xml
+Sitemap: https://retroweb.stefannasturas.com/sitemap.xml

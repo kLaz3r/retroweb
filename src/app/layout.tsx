@@ -13,10 +13,10 @@ const structuredData = {
   name: "RetroWeb",
   description:
     "Play classic retro games online in your browser. Emulate GBA, SNES, NES, and DOS games instantly.",
-  url: "https://retroweb.dev",
+  url: "https://retroweb.stefannasturas.com",
   potentialAction: {
     "@type": "SearchAction",
-    target: "https://retroweb.dev/search?q={search_term_string}",
+    target: "https://retroweb.stefannasturas.com/search?q={search_term_string}",
     "query-input": "required name=search_term_string",
   },
   sameAs: ["https://github.com/kLaz3r/retroweb"],
@@ -38,15 +38,15 @@ export const metadata: Metadata = {
     "free online games",
     "retro gaming",
   ],
-  authors: [{ name: "RetroWeb Team" }],
-  creator: "RetroWeb",
-  publisher: "RetroWeb",
+  authors: [{ name: "Stefan Nasturas" }],
+  creator: "Stefan Nasturas",
+  publisher: "Stefan Nasturas",
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
   },
-  metadataBase: new URL("https://retroweb.dev"),
+  metadataBase: new URL("https://retroweb.stefannasturas.com"),
   alternates: {
     canonical: "/",
   },
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     title: "RetroWeb - Play Classic Games Online in Your Browser",
     description:
       "Relive the nostalgia with RetroWeb! Play thousands of classic retro games online directly in your browser. Emulate GBA, SNES, NES, and DOS games instantly without downloads.",
-    url: "https://retroweb.dev",
+    url: "https://retroweb.stefannasturas.com",
     siteName: "RetroWeb",
     images: [
       {
@@ -120,6 +120,7 @@ export default function RootLayout({
       lang="en"
       className={`${geist.variable} ${montserrat.variable} ${orbitron.variable}`}
     >
+      <meta name="apple-mobile-web-app-title" content="Retroweb" />
       <body className="flex min-h-screen flex-col">
         <Header />
         <main className="flex-1">{children}</main>
